@@ -19,13 +19,14 @@ public class ExampleTest {
     public void checkVisibilityCookiesPopup() {
         open("https://www.digitalleague.ru/");
 
-
+        Configuration.pageLoadStrategy = "eager";
         $(".cookie-modal__text").is(visible);
+        sleep(3000);
         //Assertions.assertTrue($(".cookie-modal__text").getText().contains("Сайт использует файлы cookie."),
                 //"Ошибка, текст не содержит cookie");
         //Assertions.assertTrue($(".cookie-modal__btn").getText().contains("Согласен"),
                 //"Ошибка, текст не содержит Согласен");
-        $(".cookie-modal").$(byText("Согласен")).click();
+        $(".cookie-modal__btn").click();
         //$(".cookie-modal__btn").is(not(visible));
     }
 
